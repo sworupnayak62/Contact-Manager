@@ -1,0 +1,49 @@
+<app-nav-after></app-nav-after>
+<div class="container container-form-signup p-1 rounded bg-dark cont">
+    <form #contactForm="ngForm" (ngSubmit)="onAdd()">
+        <div class="mb-2">
+            <h3 class="text-info">Add Contact</h3>
+        </div>
+        <div [class]="isError ? 'alert alert-danger' : 'd-none'" class=" mb-1"> {{message}} </div>
+        <div [class]="isSuccess ? 'alert alert-success' : 'd-none'" class=" mb-1"> {{message}} </div>
+        <div class="row mb-2">
+            <div class="col">
+                <input type="text" #fname="ngModel"  required class="form-control" name="name" placeholder="Name" [(ngModel)] = "contact.ContactName" />
+                <div *ngIf="fname.errors && fname.touched">
+                    <div class="text-danger" *ngIf="fname.errors.required">Name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col">
+                <input type="text" #email="ngModel" required class="form-control" name="email" placeholder="Email" [(ngModel)] = "contact.ContactEmail" />
+                <div *ngIf="email.errors && email.touched">
+                    <div class="text-danger" *ngIf="email.errors.required">Email is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col">
+                <input type="text" #number="ngModel"  required class="form-control" name="number" placeholder="Number" [(ngModel)] = "contact.ContactNumber" />
+                <div *ngIf="number.errors && number.touched">
+                    <div class="text-danger" *ngIf="number.errors.required">Phone Number is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <input type="text" #type="ngModel"  required class="form-control" name="type" placeholder="Type" [(ngModel)] = "contact.ContactType" />
+                <div *ngIf="type.errors && type.touched">
+                    <div class="text-danger" *ngIf="type.errors.required">Contact type is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col button">
+                <button class="btn btn-dark px-5" [disabled]="contactForm.form.invalid">Save</button>&nbsp&nbsp
+                <button class="btn btn-dark px-5"  (click)="onCancel()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+

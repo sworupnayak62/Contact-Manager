@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:wght@500&family=Roboto&display=swap");
+
+table {
+  font-family: "Roboto", sans-serif;
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.left {
+  width: 75%;
+}
+.right {
+  background-color: turquoise;
+  width: 25%;
+  padding: 20px;
+}
+
+.left-bef {
+  width: 100%;
+}

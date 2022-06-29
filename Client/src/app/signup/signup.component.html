@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+<div class="container container-form-signup bg-dark shadow-lg p-1 rounded">
+    <form #signupForm="ngForm" (ngSubmit)="onSubmitForm(pass.value,confirm.value)">
+        <div>
+            <h1 class="text-info">SIGN UP</h1>
+        </div>
+        <div [class]="isError ? 'alert alert-danger' : 'd-none'" class=" mb-1"> {{message}} </div>
+        <div [class]="isSuccess ? 'alert alert-success' : 'd-none'" class=" mb-1"> {{message}} </div>
+        <div class="row mb-1">
+            <div class="col">
+                <input type="text" #fname="ngModel"  required class="form-control" name="fullname" placeholder="Full name" [(ngModel)] = "user.UserFullName" />
+                <div *ngIf="fname.errors && fname.touched">
+                    <div class="text-danger" *ngIf="fname.errors.required">Full Name is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <div class="col">
+                <input type="text" #email="ngModel" required class="form-control" name="email" placeholder="Email" [(ngModel)] = "user.UserEmail" />
+                <div *ngIf="email.errors && email.touched">
+                    <div class="text-danger" *ngIf="email.errors.required">Email is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <div class="col">
+                <input type="password" #pass="ngModel" required class="form-control" name="password" placeholder="Enter Password" [(ngModel)] = "user.UserPassword" />
+                <div *ngIf="pass.errors && pass.touched">
+                    <div class="text-danger" *ngIf="pass.errors.required">Password is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <input type="password" #confirm required class="form-control" name="password" placeholder="Confirm Password"/>
+                <div class="text-danger" *ngIf="isMatch">Password not matching</div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col button">
+                <button class="btn btn-dark px-5" [disabled]="signupForm.form.invalid">SUBMIT</button>
+            </div>
+        </div>
+        <div class="text-white">
+            Already have an account? <a class="text-info" routerLink="/Login" id="link2">Log In</a>
+        </div>
+    </form>
+</div>

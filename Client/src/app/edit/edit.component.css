@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:wght@500&family=Roboto&display=swap");
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  width: 60%;
+}
+.left {
+  width: 40%;
+}
+.right {
+  width: 60%;
+}
+h2 {
+  font-family: "Pattaya", sans-serif;
+  text-align: center;
+  padding-top: 8px;
+  color: white;
+}
+.button {
+  text-align: center;
+}
+.cont {
+  margin-top: 90px;
+  box-shadow: 1px 1px 20px 0.4px rgba(44, 42, 42, 0.822);
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background: transparent;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid #2a2e35;
+  width: 100%;
+  color: white;
+  border-radius: 0px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]:hover {
+  outline: none;
+  box-shadow: none;
+}
